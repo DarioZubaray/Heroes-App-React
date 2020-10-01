@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Redirect, useParams } from 'react-router-dom'
 import { getHeroesById } from '../../selectors/getHeroeById'
 
@@ -6,7 +6,8 @@ export const HeroeScreen = ({ history }) => {
 
     const { heroeId } = useParams()
 
-    const heroe = getHeroesById(heroeId)
+    const heroe = useMemo(() => getHeroesById(heroeId), [ heroeId ])
+    // const heroe = getHeroesById(heroeId)
 
     if ( !heroe ) {
         return <Redirect to="/" />
