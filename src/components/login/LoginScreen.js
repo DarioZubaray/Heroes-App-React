@@ -5,6 +5,8 @@ import { types } from '../../types/types'
 
 export const LoginScreen = ({ history }) => {
 
+    const lastPath = localStorage.getItem('lastPath') || '/'
+
     const { dispatch } = useContext(AuthContext)
 
     const initialState = {
@@ -30,7 +32,7 @@ export const LoginScreen = ({ history }) => {
             }
         })
         reset()
-        history.replace('/')
+        history.replace(lastPath)
     }
 
     return (
