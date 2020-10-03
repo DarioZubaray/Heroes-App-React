@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { DcScreen } from '../components/dc/DcScreen'
 import { HeroeScreen } from '../components/heroes/HeroeScreen'
+import { HomeScreen } from '../components/home/HomeScreen'
 import { MarvelScreen } from '../components/marvel/MarvelScreen'
 import { SearchScreen } from '../components/search/SearchScreen'
 import { Navbar } from '../components/ui/Navbar'
@@ -17,7 +18,8 @@ export const DashboardRoutes = () => {
                     <Route exact path="/dc" component={ DcScreen } />
                     <Route exact path="/search" component={ SearchScreen } />
                     <Route exact path="/hero/:heroeId" component={ HeroeScreen } />
-                    <Redirect to="/marvel" />
+                    <Route exact path="/home" component={ HomeScreen } />
+                    <Redirect to="/home" />
                 </Switch>
             </div>
         </>
